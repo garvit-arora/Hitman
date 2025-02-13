@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire a Hitman</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 50px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: glitch 0.8s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 5px 5px 0px red, -5px -5px 0px black; }
+            100% { text-shadow: -5px -5px 0px red, 5px 5px 0px black; }
+        }
+
+        .form-container {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 0, 0, 0.1);
+            display: inline-block;
+            border-radius: 5px;
+            border: 2px solid red;
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            outline: none;
+            background: black;
+            color: red;
+            font-size: 18px;
+            border-bottom: 2px solid red;
+        }
+
+        .hire-btn {
+            background: red;
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .hire-btn:hover {
+            background: black;
+            color: red;
+            border: 2px solid red;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>HIRE A HITMAN</h1>
+    
+    <div class="form-container">
+        <h2>Target Details</h2>
+        <input type="text" placeholder="Target's Name" required>
+        <input type="text" placeholder="Last Known Location" required>
+        <textarea placeholder="Additional Information" rows="4"></textarea>
+        <button class="hire-btn" onclick="redirectToTracking()">Confirm Contract</button>
+    </div>
+
+    <script>
+        function redirectToTracking() {
+            window.location.href = "tracking.html";
+        }
+    </script>
+
+</body>
+</html>

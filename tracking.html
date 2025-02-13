@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Target</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            animation: glitch 1s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 5px 5px 0px red, -5px -5px 0px black; }
+            100% { text-shadow: -5px -5px 0px red, 5px 5px 0px black; }
+        }
+
+        .loading-text {
+            font-size: 22px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .map {
+            width: 80%;
+            height: 300px;
+            background: url('https://i.imgur.com/lXbnzE2.gif') center center no-repeat;
+            background-size: cover;
+            margin: 30px auto;
+            border: 3px solid red;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hitman-details {
+            font-size: 20px;
+            border: 2px solid red;
+            display: inline-block;
+            padding: 10px;
+            margin-top: 20px;
+            background: rgba(255, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 5s forwards;
+        }
+
+        .mission-status {
+            font-size: 22px;
+            margin-top: 20px;
+            opacity: 0;
+        }
+
+        .completed {
+            font-size: 24px;
+            background: green;
+            padding: 10px;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 12s forwards 10s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>TRACKING TARGET...</h1>
+    <p class="loading-text">Locating last known coordinates...</p>
+    
+    <div class="map"></div>
+
+    <div class="hitman-details">
+        <h2>Hitman Assigned</h2>
+        <p>Name: Viktor "Shadow" Ivanov</p>
+        <p>Age: 42</p>
+        <p>Specialty: Silent Execution</p>
+        <p>Success Rate: 99.8%</p>
+        <p>Time to Arrival: <span id="arrival-time">Calculating...</span></p>
+    </div>
+
+    <p class="mission-status" id="mission-update">Awaiting status update...</p>
+    
+    <p class="completed" id="mission-complete">MISSION SUCCESSFUL. CONTRACT CLOSED.</p>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("arrival-time").innerText = "3 minutes";
+            document.getElementById("mission-update").style.opacity = "1";
+            document.getElementById("mission-update").innerText = "Hitman En Route...";
+        }, 5000);
+
+        setTimeout(() => {
+            document.getElementById("mission-update").innerText = "Target Located. Execution in Progress...";
+        }, 10000);
+
+        setTimeout(() => {
+            document.getElementById("mission-complete").style.opacity = "1";
+        }, 15000);
+    </script>
+
+</body>
+</html>
